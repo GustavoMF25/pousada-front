@@ -1,6 +1,6 @@
-export default function Caixa(props: any){
+export default function Caixa(props: any) {
 
-    return(
+    return (
         <div className={`
         flex justify-center items-center
         bg-purple-500 rounded-md p-2 
