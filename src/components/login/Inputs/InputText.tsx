@@ -1,22 +1,34 @@
 import { FiLock, FiMail } from 'react-icons/fi'
 interface InputProps {
-    tipo?: String,
-    label: String,
-    event?: any
+    tipo?: string,
+    label: string,
+    event?: any,
+    id: string,
+    name: string,
+    required: boolean,
+    autoComplete?: string
 }
 
 export default function InputText(props: InputProps) {
     return (
-        <>
-            <label className="flex items-center text-sm font-medium leading-6 text-gray-950">{props.tipo == 'password' ? <FiLock className='mr-2'/> : <FiMail className='mr-2' /> } {props.label}</label>
-            <div className="relative mt-2 rounded-md shadow-sm">
-                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                    <span className="text-gray-500 sm:text-sm">
-                        {props.tipo == 'password' ? <FiLock /> : <FiMail /> }
-                    </span>
+        <div className='mb-5'>
+
+            <label htmlFor={props.id} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex items-center">
+                <div className='mr-2'>
+                    {props.tipo == 'password' ? <FiLock /> : <FiMail />}
                 </div>
-                <input type={props.tipo} onChange={(val) => props.event(val)} name="price" id="price" className="block ml-2 w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder={props.label} />
-            </div>
-        </>
+                {props.label}
+            </label>
+            <input
+                autoComplete={props.autoComplete}
+                type={props.tipo}
+                onChange={(val) => props.event(val)}
+                name={props.name}
+                id={props.id}
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder=" "
+                required
+            />
+        </div>
     )
 }

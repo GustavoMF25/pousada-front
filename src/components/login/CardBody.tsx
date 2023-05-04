@@ -1,6 +1,6 @@
 export default function CardBody(props: any) {
     return (
-        <div className="p-5 px-12 py-5">
+        <div className="space-y-4 p-5 md:space-y-6">
             {props.children}
         </div>
     )
