@@ -13,11 +13,11 @@ export default function Home() {
   const [senha, setSenha] = useState('');
 
 
-  const handleEmail = (params: any) => {
-    setEmail(params.target.value);
+  const handleEmail = (params: string) => {
+    setEmail(params);
   }
   const handlePassword = (params: any) => {
-    setSenha(params.target.value)
+    setSenha(params)
   }
 
 
